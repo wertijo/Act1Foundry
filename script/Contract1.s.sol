@@ -12,7 +12,7 @@ contract Contract1Deploy is Script {
         vm.startBroadcast(deployerPrivateKey);
 
         // Deploy
-        Contract1 mit = new Contract1("Mi token", "MIT", 1);
+        Contract1 mit = new Contract1("Mi token 1", "MIT", 1);
 
         // Verify + End
         console.log(mit.totalSupply());
