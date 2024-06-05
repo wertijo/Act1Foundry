@@ -3,4 +3,10 @@ src = "src"
 out = "out"
 libs = ["lib"]
 
+#Red de arbitrumSepolia
+arbitrumSepolia = "https://arbitrum-sepolia.blockpi.network/v1/rpc/public"
+
+optimizer = true
+gas_report = ["*"]
+
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
