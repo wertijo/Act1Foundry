@@ -6,16 +6,25 @@ import {Contract1} from "../src/Contract1.sol";
 import {console} from "forge-std/console.sol";
 
 contract Contract1Deploy is Script {
+
+    function setUp() public {
+    }
+
     function run () public {
         // Setup
-        uint256 deployerPrivateKey = vm.envUint("WALLET");
-        vm.startBroadcast(deployerPrivateKey);
+        address deployer = vm.rememberKey(vm.envUint("PRIVATE_KEY"));
+        //address account = vm.addr(deployerPrivateKey);
+
+        vm.startBroadcast(deployer);
 
         // Deploy
-        Contract1 mit = new Contract1("Mi token 1", "MIT", 1);
+        Contract1 miContrato = new Contract1("mi","MIT", 0.0001 ether);
+        miContrato.mint(deployer, 0.001 ether);        
 
         // Verify + End
-        console.log(mit.totalSupply());
-        vm.stopBroadcast();
+        console.log("Total minteado: ", miContrato.totalSupply());
+        console.log("Contrato1 deployed at: ", address(miContrato));
+        console.log("Owner del contrato: ", deployer);
+        vm.stopBroadcast();       
     }
 }

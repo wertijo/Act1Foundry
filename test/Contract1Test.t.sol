@@ -13,7 +13,7 @@ contract contract1Test is Test {
     function setUp() public {
         // Simulamos que la transacción proviene de supplyOwnerAddress
         vm.prank(supplyOwnerAddress);
-        token = new Contract1("Mi token", "MIT", 1);
+        token = new Contract1("Mi token 2", "MIT", 1);
     }
 
 //Algunas funciones de testing muy simples:
@@ -22,7 +22,7 @@ contract contract1Test is Test {
 
     //testear el nombre del token
     function test_realName() public view{
-        assertEq(token.name(), "Mi token");
+        assertEq(token.name(), "Mi token 2");
     }
 
     //testear el alias del token
